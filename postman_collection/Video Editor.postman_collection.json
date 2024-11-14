@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "17d0bacc-a6fa-4cb4-aaa6-e7cb967db238",
+		"name": "Video Editor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39705784"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Video Upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/bhaveshkumar/Downloads/trimmed_1731574274147_big_buck_bunny_240p_1mb.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/video-editor/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"video-editor",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Video Uploads Fetch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/bhaveshkumar/Downloads/file_example_MP4_480_1_5MG.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/video-editor/videos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"video-editor",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Video Trimming",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/bhaveshkumar/Downloads/file_example_MP4_480_1_5MG.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/video-editor/videos/4411baf3-2624-4b6e-bd7e-241e517568b2/trim?startTime=3&endTime=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"video-editor",
+						"videos",
+						"4411baf3-2624-4b6e-bd7e-241e517568b2",
+						"trim"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "3"
+						},
+						{
+							"key": "endTime",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Video Merging",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"75c95206-bf30-4e3f-a627-47813867548f\",\n    \"6908052c-3704-4e7a-a5bc-6c62866a85d9\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/video-editor/videos/merge",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"video-editor",
+						"videos",
+						"merge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Video Share",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "my_secret_api_key",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/video-editor/videos/4411baf3-2624-4b6e-bd7e-241e517568b2/share",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"video-editor",
+						"videos",
+						"4411baf3-2624-4b6e-bd7e-241e517568b2",
+						"share"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
