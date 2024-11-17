@@ -27,5 +27,5 @@ mvn clean install
 ``
 - Start server by running
 ``
-
+java -jar target/video-editor-0.0.1-SNAPSHOT.jar
 ``
