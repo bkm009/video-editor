@@ -70,7 +70,7 @@ public class VideoEditorUtils {
         return Paths.get("").toAbsolutePath() + "/data/";
     }
 
-    public static void trimVideo(String inputFilePath, String outputFilePath, double startSeconds, double durationSeconds) throws IOException {
+    public static boolean trimVideo(String inputFilePath, String outputFilePath, double startSeconds, double durationSeconds) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder(
                 "ffmpeg",
                 "-ss", String.valueOf(startSeconds), // Start time
@@ -99,9 +99,11 @@ public class VideoEditorUtils {
         if (!outputFile.exists() || outputFile.length() == 0) {
             throw new IOException("Failed to create trimmed video file.");
         }
+
+        return true;
     }
 
-    public static void mergeVideo(String inputFilePaths, String outputFilePath) throws IOException {
+    public static boolean mergeVideo(String inputFilePaths, String outputFilePath) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder(
                 "ffmpeg", "-f", "concat", "-safe", "0", "-i", inputFilePaths, "-c", "copy", outputFilePath
         );
@@ -121,6 +123,8 @@ public class VideoEditorUtils {
         if (!outputFile.exists() || outputFile.length() == 0) {
             throw new IOException("Failed to create merged video file.");
         }
+
+        return true;
     }
 
 }

@@ -30,7 +30,7 @@ public class LinkShareService {
         linkShareEntity.setCreatedAt(System.currentTimeMillis());
         linkShareEntity.setVideoUploadEntity(videoUploadEntity);
 
-        linkShareRepository.save(linkShareEntity);
+        linkShareEntity = linkShareRepository.save(linkShareEntity);
 
         return ApplicationConstants.BASE_APP_URL + ApplicationConstants.SHARED_LINK_URL +
                 "/" + linkShareEntity.getLinkId();

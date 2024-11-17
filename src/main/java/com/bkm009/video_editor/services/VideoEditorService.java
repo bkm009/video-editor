@@ -102,8 +102,9 @@ public class VideoEditorService {
             videoUploadEntity.setVideoUrl(videoPath);
             videoUploadEntity.setFileName(fileName);
 
-            videoUploadRepository.save(videoUploadEntity);
-            return VideoDto.builder().videoId(videoId.toString()).fileName(fileName).build();
+            videoUploadEntity = videoUploadRepository.save(videoUploadEntity);
+            return VideoDto.builder().videoId(videoUploadEntity.getVideoId().toString())
+                    .fileName(videoUploadEntity.getFileName()).build();
 
         }
         finally {
